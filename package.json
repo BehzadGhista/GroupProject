@@ -1,0 +1,22 @@
+{
+  "name": "group-project",
+  "version": "1.0.0",
+  "description": "Headline Guessing game",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BehzadGhista/GroupProject.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BehzadGhista/GroupProject/issues"
+  },
+  "homepage": "https://github.com/BehzadGhista/GroupProject#readme",
+  "dependencies": {
+    "gh-pages": "^0.11.0"
+  }
+}
