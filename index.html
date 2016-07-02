@@ -25,7 +25,7 @@
       <div class="row">
         <div class="small-2 large-12 columns">
            <div class="callout "> 
-           <h3 align="center">***insert headline***</h3>
+           <h3 align="center" id="headline-slot">***insert headline***</h3>
            </div>
          </div>
       </div>
@@ -39,8 +39,8 @@
            <div class="callout "> 
              <div class="progress" role="progressbar" tabindex="0" aria-valuenow="20" 
                   aria-valuemin="0" aria-valuetext="25 percent" aria-valuemax="100">
-               <span class="progress-meter" style="width: 20%">
-                  <p class="progress-meter-text">20%</p>
+               <span class="progress-meter" style="width: 0%">
+                  <p class="progress-meter-text"></p>
                </span>
              </div>
            </div>
@@ -50,7 +50,7 @@
       <div class="row">
         <div class="small-2 large-12 columns">
            <div class="callout "> 
-           <button type="button" class="large button float-center"  onclick="buildSet()">Play Game</button>
+           <button type="button" class="large button float-center" onclick="playGame()">Play Game</button>
            </div>
          </div>
       </div>
@@ -67,7 +67,7 @@
 
        <p class="lead">You will be promopted with five headlines one at time.</p>
        <p class="lead">You will be given four options as a multiple choice.</p>
-       <p class="lead">Click the button under the image of the person you think would replace the ? in the headline.</p>
+       <p class="lead">Click the button under the image of the person you think would replace the ??? in the headline.</p>
        <p class="lead">Once on the main page, Press the 'Play Game' button to test your skills.</p>
 
        <button class="close-button" data-close aria-label="Close modal" type="button" onclick="">
@@ -78,19 +78,18 @@
        </div>
     </div>
     
-    <!-- Delete task Modal -->
-    <div class="reveal" id="deleteModal" data-reveal>
-       <h1>Delete Task(s)!</h1>
+    <!-- Post Question Answer Modal -->
+    <div class="reveal" id="answerModal" data-reveal>
+       <h1 id="correct-or-not">You are......</h1>
+       <img class="thumbnail" align="center" src="images/thumbsdown.png">
 
-       <p class="lead">Are you sure you want to delete this/these task(s)?</p>
-       <p >Well that's one way to get it done...</p>
+       <p class="lead">show correct answer </p>
 
        <button class="close-button" data-close aria-label="Close modal" type="button">
          <span aria-hidden="true">&times;</span>
        </button>
        <div class="small button-group float-right">
-         <a class="secondary button" data-close>Cancel</a>
-         <a class="primary button" onclick="deleteTask()" data-close>Delete Task</a>
+         <a class="secondary button" data-close>Next Qustion</a>
        </div>
    </div>
 

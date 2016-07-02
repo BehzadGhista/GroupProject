@@ -2,6 +2,13 @@
 
 $(document).foundation();
 
+var questionIndex = 0;
+var postList = [];
+var answerList = [];
+
+var canidates = shuffleArray(["trump","clinton","sanders","kanye"]);
+var colors    = shuffleArray(["primary", "alert", "success", "warning"]);
+
 init();
 
 function init () {
@@ -9,12 +16,26 @@ function init () {
    clickWelcome();
 };
 
+function playGame() {
+  postList = module.returnPosts();
+  answerList = module.returnAnswers();
+  buildSet();
+  questionIndex = 0;
+  changeHeadline();
+
+  console.log("postList:");
+  console.log(postList);
+  console.log("answerList:");
+  console.log(answerList);
+}
+
+function changeHeadline () {
+  $( '#headline-slot' ).text(postList[questionIndex]);
+}
+
 function buildSet() {
   
   $( "#canidateRow" ).empty(); 
-
-  var canidates = shuffleArray(["trump","clinton","sanders","kanye"]);
-  var colors    = shuffleArray(["primary", "alert", "success", "warning"]);
 
   canidates.forEach(function (ele, index) {
     addToPage(ele, index, colors[index]);
@@ -90,9 +111,29 @@ function getNickName (canidate) {
 };
 
 function answerQuestion (who) {
+
   console.log(who);
+  console.log(answerList[questionIndex]);
+  //check answer...
+  var img2 = "thumbsup.png";
+ // $('#correct-or-not').append( $('<img class="thumbnail" src="images/' + img + '">'))
+   //                ));
+  $('#answerModal').foundation('open');
+  questionIndex++; 
+  updateProgressBar();
+  buildSet();
+  changeHeadline();
 }
 
+function updateProgressBar () {
+  var percent = (questionIndex * 20);
+  var update = "width: ";
+  update += percent;
+  update += "%";
+
+  $('.progress-meter').attr("style",update);
+  $('.progress-meter-text').text(percent + "%");
+}
 
 function clearModal (){
 };
