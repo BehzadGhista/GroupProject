@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <!-- Google Font-->
-    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:300,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
   </head>
 
   <body>
 
     <!-- Title -->
-    <div class="top-bar">
-       <li class="menu-text">#rp29: groupProject</li>
+    <div id="top-bar">
+       <span id="top-text">#rp29: groupProject #Mooooooo</span>
     </div>
 
     <!--  -->
     <div class="callout secondary large radius">
-      <h2>Who done it??</h2>
+      <h2 align="center">Super Fun Headline Guessing Game!!</h2>
 
       <div class="row">
         <div class="small-2 large-12 columns">
@@ -47,30 +47,34 @@
          </div>
       </div>
 
+      <div class="row">
+        <div class="small-2 large-12 columns">
+           <div class="callout "> 
+           <button type="button" class="large button float-center"  onclick="buildSet()">Play Game</button>
+           </div>
+         </div>
+      </div>
 
     </div>
 
     <button type="button" class="expanded button"  onclick="buildSet()"> test toggle </button>
+    <button type="button" class="expanded alert button" data-open="welcomeModal" id="welcome"> Welcome </button>
+        <!-- <a class="primary button round" data-open="addModal">Add Task</a> -->
 
     <!-- Add task Modal -->
-    <div class="reveal" id="addModal" data-reveal>
-       <h1>Add Awesome Task!</h1>
+    <div class="large reveal" id="welcomeModal" data-reveal>
+       <h1>Welcome to our headline guessing game...</h1>
 
-       <p class="lead">Please enter your new task below.</p>
-       <form>
-         <div class="row">
-           <div class="small-9 columns">
-             <input type="text" id="task-description" placeholder="Enter Task Description...">
-           </div>
-         </div>
-       </form>
+       <p class="lead">You will be promopted with five headlines one at time.</p>
+       <p class="lead">You will be given four options as a multiple choice.</p>
+       <p class="lead">Click the button under the image of the person you think would replace the ? in the headline.</p>
+       <p class="lead">Once on the main page, Press the 'Play Game' button to test your skills.</p>
 
-       <button class="close-button" data-close aria-label="Close modal" type="button" onclick="clearModal()">
+       <button class="close-button" data-close aria-label="Close modal" type="button" onclick="">
          <span aria-hidden="true">&times;</span>
        </button>
        <div class="small button-group float-right">
-         <a class="secondary button" onclick="clearModal()" data-close>Cancel</a>
-         <a class="primary button" onclick="addTask(document.getElementById('task-description').value)" data-close>Add Task</a>
+         <a class="secondary button" onclick="clearModal()" data-close>Got it!</a>
        </div>
     </div>
     
