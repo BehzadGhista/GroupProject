@@ -1,0 +1,24 @@
+  #top-bar {
+    background-color: #2199e8; }
+
+  #top-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 1.25rem;
+  color: inherit;
+  text-rendering: optimizeLegibility;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  line-height: 1.4; }
+
+
+.img {
+    position: relative;
+    float: left;
+    width:  100px;
+    height: 100px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+}

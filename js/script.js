@@ -7,6 +7,7 @@ google.load("feeds", "1"); //tells google api to load the feeds api (version 1)
 
 function Bernie() {
   var feed = new google.feeds.Feed("https://news.google.com/news?q=bernie%20sanders&output=rss");
+  feed.setNumEntries(10);
   feed.load(function(result) {
     if (!result.error) {
       for (var i = 0; i < result.feed.entries.length; i++) {
@@ -19,6 +20,7 @@ function Bernie() {
 
 function Hillary() {
   var feed = new google.feeds.Feed("https://news.google.com/news?q=hillary%20clinton&output=rss");
+  feed.setNumEntries(10);
   feed.load(function(result) {
     if (!result.error) {
       for (var i = 0; i < result.feed.entries.length; i++) {
@@ -31,6 +33,7 @@ function Hillary() {
 
 function Trump() {
   var feed = new google.feeds.Feed("https://news.google.com/news?q=donald%20trump&output=rss");
+  feed.setNumEntries(10);
   feed.load(function(result) {
     if (!result.error) {
       for (var i = 0; i < result.feed.entries.length; i++) {
@@ -43,6 +46,7 @@ function Trump() {
 
 function Kanye() {
   var feed = new google.feeds.Feed("https://news.google.com/news?q=kanye%20west&output=rss");
+  feed.setNumEntries(10);
   feed.load(function(result) {
     if (!result.error) {
       for (var i = 0; i < result.feed.entries.length; i++) {
@@ -68,9 +72,12 @@ var module = (function() {
     },
     returnAnswers: function() {
       return (answerKey);
+    },
+    runRest: function() {
+      reset();
     }
   }
-});
+})();
 
 
 
@@ -79,14 +86,25 @@ setTimeout(function() {
   //console logs to see what it looks like at each step ### TO REMOVE LATER
   console.log("Posts: " + posts + " Length: " + posts.length);
   console.log("Posts without Dupes: " + postsWithoutDupes + " Length: " + postsWithoutDupes.length);
+  console.log("Chosen Posts: " + chosenPosts + " Length: " + chosenPosts.length);
   console.log("Answer Key: " + answerKey + " Length: " + answerKey.length);
   console.log("Processed Posts: " + processedPosts + " Length: " + processedPosts.length);
+  //
 }, 3000);
 
 
 function process() {
   removeDupes();
   rng();
+  processPosts();
+};
+
+
+function reset() {
+  chosenPosts = [];
+  rng();
+  answerKey = [];
+  processedPosts = [];
   processPosts();
 };
 
@@ -112,6 +130,7 @@ function rng() {
   for (var i=0; i < 5; i++) {
     var num = Math.floor((Math.random() * postsWithoutDupes.length));
     chosenPosts.push(postsWithoutDupes[num]);
+    postsWithoutDupes.splice(num, 1);
   }
 };
 
