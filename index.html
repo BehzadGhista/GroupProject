@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/app.css">
     <!-- Google Font-->
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/motion-ui/1.1.1/motion-ui.min.css" /> -->
   </head>
 
   <body>
@@ -25,7 +26,7 @@
       <div class="row">
         <div class="small-2 large-12 columns">
            <div class="callout "> 
-           <h3 align="center" id="headline-slot">***insert headline***</h3>
+           <h3 align="center" id="headline-slot">Click Play Game!!!</h3>
            </div>
          </div>
       </div>
@@ -49,15 +50,21 @@
 
       <div class="row">
         <div class="small-2 large-12 columns">
-           <div class="callout "> 
-           <button type="button" class="large button float-center" onclick="playGame()">Play Game</button>
+           <div class="small-2 large-8 columns">
+             <div class="callout "> 
+               <h5 align="center" id="progress-slot"></h5>
+             </div>
+           </div>
+           <div class="button-group float-right">
+             <button type="button" class="large alert button" onclick="resetGame()" id="reset-game">Reset Game</button>
+             <button type="button" class="large button" onclick="playGame()" id="play-game">Play Game</button>
            </div>
          </div>
       </div>
 
     </div>
 
-    <button type="button" class="expanded button"  onclick="buildSet()"> test toggle </button>
+    <!-- <button type="button" class="expanded button"  onclick="buildSet()"> test toggle </button> -->
     <button type="button" class="expanded alert button" data-open="welcomeModal" id="welcome"> Welcome </button>
         <!-- <a class="primary button round" data-open="addModal">Add Task</a> -->
 
@@ -81,31 +88,32 @@
     <!-- Post Question Answer Modal -->
     <div class="reveal" id="answerModal" data-reveal>
        <h1 id="correct-or-not">You are......</h1>
-       <img class="thumbnail" align="center" id="correct-or-not-img" src="images/thumbsdown.png">
+       <img class="thumbnail float-center" id="correct-or-not-img" src="images/thumbsdown.png">
 
-       <p class="lead">show correct answer </p>
+       <p class="lead" id="correct-answer"></p>
+       <p id="og-post"></p>
 
        <button class="close-button" data-close aria-label="Close modal" type="button">
          <span aria-hidden="true">&times;</span>
        </button>
        <div class="small button-group float-right">
-         <a class="secondary button" data-close>Next Qustion</a>
+         <a class="secondary button" onclick="nextQ()" data-close>Next Qustion</a>
        </div>
    </div>
 
     <!-- Process task Modal -->
-    <div class="reveal" id="processModal" data-reveal>
-       <h1>Process Task(s)!</h1>
+    <div class="reveal" id="resultsModal" data-reveal>
+       <h1>Great Game!</h1>
 
-       <p class="lead">Are you sure you want to process this/these task(s)?</p>
-       <p >This will flip the task status.</p>
+       <p class="lead">Here is how you did.</p>
+       <p id="end-results"></p>
 
        <button class="close-button" data-close aria-label="Close modal" type="button">
          <span aria-hidden="true">&times;</span>
        </button>
        <div class="small button-group float-right">
          <a class="secondary button" data-close>Cancel</a>
-         <a class="primary button" onclick="processTask()" data-close>Process Task</a>
+         <a class="primary button" onclick="playGame()" data-close>Play Again</a>
        </div>
    </div>
 

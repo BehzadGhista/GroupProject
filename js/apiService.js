@@ -86,6 +86,8 @@ var api = (function() {
   function reset() {
     chosenPosts = [];
     rng();
+   // console.log("reset:");
+   // console.log(chosenPosts);
     answerKey = [];
     processedPosts = [];
     processPosts();
@@ -101,7 +103,7 @@ var api = (function() {
     postsWithoutDupes = posts.filter(function(v) { // iterate over sentence array to filter
     return names.filter(function(w) { // iterate over names array and filter
       return v.indexOf(w) > -1; // get elements which contains in the sentence
-    }).length == 1; // filter based on the filtered names array length
+    }).length === 1; // filter based on the filtered names array length
     });
   };
 
@@ -142,7 +144,7 @@ var api = (function() {
     returnAnswers: function() {
       return (answerKey);
     },
-    runRest: function() {
+    runReset: function() {
       reset();
     }
   };
