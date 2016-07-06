@@ -4,6 +4,8 @@ var ui = (function() {
 
    function changeHeadline (headline) {
      $( '#headline-slot' ).text(headline);
+     var elem = $('#headline-slot');
+     Foundation.Motion.animateIn(elem, 'scale-in-up');
    }
    
   function addToPage (canidate, index, color) {
