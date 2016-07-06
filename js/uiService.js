@@ -12,12 +12,50 @@ var ui = (function() {
 	  var name = getNickName(canidate);
 
 	  $('#canidateRow').append( $("<div></div>").addClass("small-2 large-3 columns")
-	                   .append( $('<div id="image-spot"></div>').addClass("callout small " + color )
+	                   .append( $('<div id="image-spot' + index + '"></div>').addClass("callout small " + color )
 	                   .append( $('<img class="thumbnail" src="images/' + img + '">'))
 	                   .append( $('<button type="button" class="expanded ' + color + ' button"' +
 	                              ' id="' + canidate + '"' + 
 	                              ' onclick="answerQuestion(this.id)">' + name + '</button>'))
 	                   ));
+
+	  var elem;
+	  var animation;
+	  var animationList = [
+	   'hinge-in-from-top',
+	   'hinge-in-from-bottom',
+	   'hinge-in-from-right',
+	   'hinge-in-from-left',
+	   'hinge-in-from-middle-x',
+	   'hinge-in-from-middle-y',
+	   'scale-in-up',
+	   'scale-in-down',
+	   'spin-in',
+	   'spin-in-ccw'
+	   ];
+
+	  switch (index) {
+		  case 0:	
+    	  animation = animationList[getRando(0,10)];
+     	  elem = $('#image-spot0');
+        Foundation.Motion.animateIn(elem, animation);
+	      break;
+		  case 1:	
+    	  animation = animationList[getRando(0,10)];
+     	  elem = $('#image-spot1');
+        Foundation.Motion.animateIn(elem, animation);
+	      break;
+		  case 2:	
+    	  animation = animationList[getRando(0,10)];
+     	  elem = $('#image-spot2');
+        Foundation.Motion.animateIn(elem, animation);
+	      break;
+		  case 3:	
+    	  animation = animationList[getRando(0,10)];
+     	  elem = $('#image-spot3');
+        Foundation.Motion.animateIn(elem, animation);
+	      break;
+	  }
 	};
 
 	function getImage (canidate){

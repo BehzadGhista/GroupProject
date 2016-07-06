@@ -37,7 +37,7 @@ function buildSet() {
   ss.shuffle();
   var canidates = ss.getCanidates();
   var colors    = ss.getColors();
-
+ 
   $( "#canidateRow" ).empty(); 
 
   canidates.forEach(function (ele, index) {
