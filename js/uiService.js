@@ -13,7 +13,7 @@ var ui = (function() {
 	  var img = getImage(canidate);
 	  var name = getNickName(canidate);
 
-	  $('#canidateRow').append( $("<div></div>").addClass("small-2 large-3 columns")
+	  $('#canidateRow').append( $("<div></div>").addClass("small-6 medium-3 columns")
 	                   .append( $('<div id="image-spot' + index + '"></div>').addClass("callout small " + color )
 	                   .append( $('<img class="thumbnail" src="images/' + img + '">'))
 	                   .append( $('<button type="button" class="expanded ' + color + ' button"' +
