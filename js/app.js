@@ -81,12 +81,25 @@ function answerQuestion (who) {
 function nextQ(){
    if (ss.getQIndex() === 5){
     $('#end-results').text("You got " + ss.getCorrect() + " of 5 correct.");
+    twitterBtn();
     resetGame();
     $('#resultsModal').foundation('open');
   } else {
     buildSet();
     ui.changeHeadline(ss.postList[ss.getQIndex()]);
   } 
+}
+
+function twitterBtn() {
+  var twtrbtn = document.createElement('a');
+  twtrbtn.setAttribute('href', 'https://twitter.com/share');
+  twtrbtn.setAttribute('class', 'twitter-share-button');
+  twtrbtn.setAttribute('style', 'margin-top:5px;');
+  twtrbtn.setAttribute('data-url', 'https://behzadghista.github.io/GroupProject/');
+  twtrbtn.setAttribute("data-text" , "I just scored " + ss.getCorrect() + " out of 5 in the Super Awesome Headline Guessing Game. Can you beat my score?");
+  twtrbtn.setAttribute("data-size" ,"large") ;
+  document.getElementById('twitter-button').appendChild(twtrbtn) ;
+  twttr.widgets.load();  //very important
 }
 
 function updateProgressBar () {
