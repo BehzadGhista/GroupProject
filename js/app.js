@@ -91,6 +91,7 @@ function nextQ(){
 }
 
 function twitterBtn() {
+  document.getElementById('twitter-button').innerHTML = "";
   var twtrbtn = document.createElement('a');
   twtrbtn.setAttribute('href', 'https://twitter.com/share');
   twtrbtn.setAttribute('class', 'twitter-share-button');
